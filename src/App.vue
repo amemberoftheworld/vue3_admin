@@ -1,14 +1,11 @@
 <script setup lang="ts">
-for(let i=0;i++;i<100){
-  console.log(i);
-  
+for (let i = 0; i++; i < 100) {
+  console.log(i)
 }
 </script>
 
 <template>
-  <div>
-    App
-  </div>
+  <div>App</div>
 </template>
 
 <style scoped>
