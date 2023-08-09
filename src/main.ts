@@ -20,5 +20,4 @@ app.use(globalComponent)
 
 import '@/styles/index.scss'
 
-
 app.mount('#app')
