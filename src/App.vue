@@ -26,11 +26,22 @@ import {
   Star,
 } from '@element-plus/icons-vue'
 
-// import SvgIcon from './components/SvgIcon/index.vue'
-
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
+import request from './utils/request'
 const value1 = ref()
 const value2 = ref()
+onMounted(() => {
+  request({
+    url: '/user/login',
+    method: 'post',
+    data: {
+      username: 'admin',
+      password: 'admin',
+    },
+  }).then((res) => {
+    console.log(res)
+  })
+})
 </script>
 
 <style scoped lang="scss">
