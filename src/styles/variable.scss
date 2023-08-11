@@ -1,2 +1,11 @@
 // scss全局变量
-$base-color:red
+
+// 菜单样式
+$base-menu-width: 260px;
+$base-menu-background: #001529;
+
+$base-menu-logo-height: 50px; // 菜单logo
+$base-logo-title-fontSize: 20px; // 菜单logo后的文字大小
+
+// 顶部导航高度
+$base-tabbar-height: 100px;
