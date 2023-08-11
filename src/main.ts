@@ -15,7 +15,6 @@ app.use(ElementPlus, {
   locale: zhCn,
 })
 
-
 import globalComponent from './components/index'
 app.use(globalComponent)
 

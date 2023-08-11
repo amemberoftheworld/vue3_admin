@@ -5,14 +5,13 @@ export interface loginForm {
 }
 
 interface dataType {
-  token?: string,
-  message?:string
+  token?: string
+  message?: string
 }
 export interface loginResponseData {
   code: number
   data: dataType
 }
-
 
 interface userInfo {
   userId: number
