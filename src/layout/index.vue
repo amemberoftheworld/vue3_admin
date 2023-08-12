@@ -1,6 +1,6 @@
 <template>
   <div class="layout_container">
-    <div class="layout_slider">
+    <div class="layout_slider" :class="{ fold: layoutSettingStore.fold }">
       <Logo></Logo>
       <el-scrollbar class="scrollbar">
         <el-menu
@@ -32,9 +32,16 @@ import Menu from './menu/index.vue'
 import Main from './main/index.vue'
 import Tabbar from './tabbar/index.vue'
 import { useRoute } from 'vue-router'
+import useLayoutSettingStore from '@/store/modules/setting'
 
+let layoutSettingStore = useLayoutSettingStore()
 let userStore = useUserStore()
 let $route = useRoute()
+</script>
+<script lang="ts">
+export default {
+  name: 'layout',
+}
 </script>
 
 <style scoped lang="scss">

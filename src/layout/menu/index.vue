@@ -56,6 +56,8 @@ const gouRoute = (vc: any) => {
   $router.push(vc.index)
 }
 </script>
+
+
 <script lang="ts">
 export default {
   name: 'Menu',
