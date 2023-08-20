@@ -38,7 +38,6 @@ import useLayoutSettingStore from '@/store/modules/setting'
 let layoutSettingStore = useLayoutSettingStore()
 let userStore = useUserStore()
 let $route = useRoute()
-
 </script>
 <script lang="ts">
 export default {
