@@ -5,6 +5,7 @@
       <el-scrollbar class="scrollbar">
         <el-menu
           :default-active="$route.path"
+          :collapse="layoutSettingStore.fold"
           background-color="#001529"
           text-color="white"
         >
@@ -13,7 +14,7 @@
       </el-scrollbar>
     </div>
 
-    <div class="layout-content">
+    <div class="layout-content" :class="{ fold: layoutSettingStore.fold }">
       <div class="layout_tabbar">
         <Tabbar></Tabbar>
       </div>
@@ -37,6 +38,7 @@ import useLayoutSettingStore from '@/store/modules/setting'
 let layoutSettingStore = useLayoutSettingStore()
 let userStore = useUserStore()
 let $route = useRoute()
+
 </script>
 <script lang="ts">
 export default {
@@ -46,15 +48,17 @@ export default {
 
 <style scoped lang="scss">
 .layout_container {
-  width: 100%;
+  width: 100vw;
   height: 100vh;
 
   display: flex;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
   .layout_slider {
     width: $base-menu-width;
     height: 100%;
     background-color: $base-menu-background;
+    transition: all 0.3s;
 
     .scrollbar {
       height: calc(100vh - $base-menu-logo-height - 20px);
@@ -64,11 +68,16 @@ export default {
         border-right: 0;
       }
     }
+    &.fold {
+      width: $base-menu-min-width;
+    }
   }
 
   .layout-content {
     width: calc(100% - $base-menu-width);
     height: 100%;
+    flex-shrink: 0;
+    transition: all 0.3s;
     .layout_tabbar {
       height: $base-tabbar-height;
     }
@@ -77,6 +86,10 @@ export default {
       background-color: saddlebrown;
       overflow: auto;
       padding: 20px;
+    }
+
+    &.fold {
+      width: calc(100vw - $base-menu-min-width);
     }
   }
 }

@@ -2,12 +2,15 @@
   <div class="logo" v-if="!setting.logoHidden">
     <!-- <SvgIcon name="logo"></SvgIcon> -->
     <img :src="setting.logo" alt="" srcset="" />
-    <p>{{ setting.title }}</p>
+    <p :class="{ fold: layoutSettingStore.fold }">{{ setting.title }}</p>
   </div>
 </template>
 
 <script setup lang="ts">
 import setting from '@/setting'
+import useLayoutSettingStore from '@/store/modules/setting'
+
+let layoutSettingStore = useLayoutSettingStore()
 </script>
 <script lang="ts">
 export default {
@@ -31,6 +34,9 @@ export default {
   p {
     font-size: $base-logo-title-fontSize;
     margin-left: 10px;
+    &.fold {
+      display: none;
+    }
   }
 }
 </style>

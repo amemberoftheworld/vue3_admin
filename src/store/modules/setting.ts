@@ -8,4 +8,5 @@ let useLayoutSettingStore = defineStore('SettingStore', {
     }
   },
 })
+
 export default useLayoutSettingStore

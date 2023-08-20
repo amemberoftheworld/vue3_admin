@@ -15,9 +15,9 @@ const constantRoute = [
     name: 'Layout',
     redirect: '/home',
     meta: {
-      title: 'layout',
+      // title: 'layout',
       hidden: false,
-      icon: 'Avatar',
+      // icon: 'Avatar',
     },
     children: [
       {
@@ -25,14 +25,12 @@ const constantRoute = [
         component: () => import('@/views/home/index.vue'),
         meta: {
           title: '首页',
-          // hidden: true,
           hidden: false,
           icon: 'Grid',
         },
       },
     ],
   },
-
   {
     path: '/screen',
     component: () => import('@/views/screen/index.vue'),
@@ -48,6 +46,7 @@ const constantRoute = [
     path: '/acl',
     component: () => import('@/layout/index.vue'),
     name: 'Acl',
+    redirect: '/acl/user',
     meta: {
       title: '权限管理',
       hidden: false,
@@ -91,6 +90,7 @@ const constantRoute = [
     path: '/product',
     component: () => import('@/layout/index.vue'),
     name: 'Product',
+    redirect: '/product/attr',
     meta: {
       title: '商品管理',
       hidden: false,
