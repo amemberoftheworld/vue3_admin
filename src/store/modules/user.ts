@@ -32,8 +32,8 @@ let useUserStore = defineStore('User', {
         this.username = result.data.checkUser.username
         this.avatar = result.data.checkUser.avatar
         return 'ok'
-      }else{
-        return Promise.reject("获取失败")
+      } else {
+        return Promise.reject('获取失败')
       }
     },
 
