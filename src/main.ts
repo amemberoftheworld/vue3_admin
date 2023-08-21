@@ -10,6 +10,7 @@ import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 
 import globalComponent from './components/index'
 import router from './router'
+import './premisstion'
 import '@/styles/index.scss'
 
 console.log(import.meta.env) //环境变量访问

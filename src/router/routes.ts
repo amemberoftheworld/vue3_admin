@@ -151,7 +151,7 @@ const constantRoute = [
     },
   },
   {
-    path: '/:pathMatch(.*)',
+    path: '/:pathMatch(.*)*',
     redirect: '/404',
     name: 'Any',
     meta: {
