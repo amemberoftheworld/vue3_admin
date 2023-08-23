@@ -1,7 +1,6 @@
 import { createApp } from 'vue'
 import App from '@/App.vue'
 import ElementPlus from 'element-plus'
-import 'element-plus/dist/index.css'
 import 'virtual:svg-icons-register'
 import pinia from './store'
 
@@ -11,6 +10,7 @@ import zhCn from 'element-plus/dist/locale/zh-cn.mjs'
 import globalComponent from './components/index'
 import router from './router'
 import './premisstion'
+import 'element-plus/dist/index.css'
 import '@/styles/index.scss'
 
 console.log(import.meta.env) //环境变量访问

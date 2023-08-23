@@ -82,7 +82,7 @@ export default {
     }
     .layout_main {
       height: calc(100% - $base-tabbar-height);
-      background-color: saddlebrown;
+      // background-color: saddlebrown;
       overflow: auto;
       padding: 20px;
     }

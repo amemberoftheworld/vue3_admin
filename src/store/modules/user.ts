@@ -1,9 +1,13 @@
 import { defineStore } from 'pinia'
-import { reqLogin, reqUserInfo } from '@/api/user'
-import { loginForm, loginResponseData } from '@/api/user/type'
+import { reqLogin, reqLogout, reqUserInfo } from '@/api/user'
 import { UserState } from './types/types'
 import { GET_TOKEN, REMOVE_TOKEN, SET_TOKEN } from '@/utils/token'
 import constantRoute from '@/router/routes'
+import {
+  loginFormData,
+  loginResponseData,
+  userInfoResponseData,
+} from '@/api/user/type'
 
 let useUserStore = defineStore('User', {
   state: (): UserState => {
@@ -15,33 +19,39 @@ let useUserStore = defineStore('User', {
     }
   },
   actions: {
-    async userLogin(data: loginForm) {
+    async userLogin(data: loginFormData) {
       let result: loginResponseData = await reqLogin(data)
       if (result.code == 200) {
-        this.token = result.data.token as string
-        SET_TOKEN(result.data.token as string)
+        this.token = result.data as string
+        SET_TOKEN(result.data as string)
         return 'ok'
       } else {
-        return Promise.reject(new Error(result.data.message))
+        return Promise.reject(new Error(result.data))
       }
     },
 
     async userInfo() {
-      let result = await reqUserInfo()
+      let result: userInfoResponseData = await reqUserInfo()
       if (result.code == 200) {
-        this.username = result.data.checkUser.username
-        this.avatar = result.data.checkUser.avatar
+        this.username = result.data.name
+        this.avatar = result.data.avatar
         return 'ok'
       } else {
-        return Promise.reject('获取失败')
+        return Promise.reject(new Error(result.message))
       }
     },
 
-    userLogout() {
-      this.token = ''
-      this.username = ''
-      this.avatar = ''
-      REMOVE_TOKEN()
+    async userLogout() {
+      let result: any = await reqLogout()
+      if (result.code == '200') {
+        this.token = ''
+        this.username = ''
+        this.avatar = ''
+        REMOVE_TOKEN()
+        return 'ok'
+      } else {
+        return Promise.reject(new Error(result.message))
+      }
     },
   },
   getters: {},

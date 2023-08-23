@@ -1,33 +1,22 @@
-// 网络请求ts规则
-export interface loginForm {
+import { ResponseData } from '@/api/common'
+
+
+export interface loginFormData {
   username: string
   password: string
 }
 
-interface dataType {
-  token?: string
-  message?: string
-}
-export interface loginResponseData {
-  code: number
-  data: dataType
+
+export interface loginResponseData extends ResponseData {
+  data: string
 }
 
-interface userInfo {
-  userId: number
-  avatar: string
-  username: string
-  password: string
-  desc: string
-  roles: string
-  buttons: string[]
-  routes: string[]
-  token: string
-}
-interface user {
-  checkUser: userInfo
-}
-export interface userResponseData {
-  code: number
-  data: user
+export interface userInfoResponseData extends ResponseData {
+  data: {
+    routes: string[]
+    buttons: string[]
+    roles: string[]
+    name: string
+    avatar: string
+  }
 }

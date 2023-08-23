@@ -50,7 +50,7 @@ import { useRoute, useRouter } from 'vue-router'
 import { ElNotification } from 'element-plus'
 import { getTime } from '@/utils/time'
 let loading = ref(false)
-const loginForm = reactive({ username: 'admin', password: 'admin' })
+const loginForm = reactive({ username: 'admin', password: 'atguigu123' })
 
 const validatorUserName = (rule: any, value: any, callback: any) => {
   if (value.length >= 5) {
