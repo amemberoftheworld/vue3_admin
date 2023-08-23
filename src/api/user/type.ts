@@ -1,11 +1,9 @@
 import { ResponseData } from '@/api/common'
 
-
 export interface loginFormData {
   username: string
   password: string
 }
-
 
 export interface loginResponseData extends ResponseData {
   data: string
