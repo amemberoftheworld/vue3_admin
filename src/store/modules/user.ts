@@ -1,8 +1,9 @@
 import { defineStore } from 'pinia'
 import { reqLogin, reqLogout, reqUserInfo } from '@/api/user'
-import { UserState } from './types/types'
 import { GET_TOKEN, REMOVE_TOKEN, SET_TOKEN } from '@/utils/token'
 import constantRoute from '@/router/routes'
+import { UserState } from '@/store/modules/type/types'
+
 import {
   loginFormData,
   loginResponseData,

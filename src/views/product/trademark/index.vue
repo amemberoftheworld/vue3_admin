@@ -28,12 +28,16 @@
             icon="Edit"
             @click="() => updateTrademark(row)"
           ></ElButton>
-          <ElButton
-            type="primary"
-            size="small"
+
+          <el-popconfirm
+            :title="`是否删除${row.tmName}？`"
             icon="Delete"
-            @click="deleteTrademark"
-          ></ElButton>
+            @confirm="deleteTrademark(row.id)"
+          >
+            <template #reference>
+              <ElButton type="primary" size="small" icon="Delete"></ElButton>
+            </template>
+          </el-popconfirm>
         </template>
       </el-table-column>
     </el-table>
@@ -102,7 +106,7 @@ import {
   ElPagination,
 } from 'element-plus'
 import { onMounted, reactive, ref } from 'vue'
-import { reqHasTrademark } from '@/api/product/trademark'
+import { reqHasTrademark, reqDeleteTrademark } from '@/api/product/trademark'
 import {
   Records,
   Trademark,
@@ -166,13 +170,33 @@ const addTrademark = () => {
   trademarkParams.logoUrl = ''
   trademarkParams.tmName = ''
   trademarkParams.id = 0
+  formRef.value?.clearValidate('tmName')
+  formRef.value?.clearValidate('logoUrl')
 }
 const updateTrademark = (row: Trademark) => {
+  formRef.value?.clearValidate('tmName')
+  formRef.value?.clearValidate('logoUrl')
   dialogVisible.value = true
   Object.assign(trademarkParams, row)
 }
 
-const deleteTrademark = () => {}
+const deleteTrademark = async (id: number) => {
+  let result: any = await reqDeleteTrademark(id)
+  if (result.code == 200) {
+    ElMessage({
+      type: 'success',
+      message: '删除成功',
+    })
+    getHasTrademark(
+      trademarkArr.value.length > 1 ? pageNo.value : pageNo.value - 1,
+    )
+  } else {
+    ElMessage({
+      type: 'error',
+      message: '删除失败',
+    })
+  }
+}
 
 const cancel = () => {
   dialogVisible.value = false
