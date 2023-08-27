@@ -1,5 +1,5 @@
 import request from '@/utils/request'
-import { AttrResponseData, CategoryResponseData } from './type'
+import { Attr, AttrResponseData, CategoryResponseData } from './type'
 
 enum API {
   C1_URL = '/admin/product/getCategory1',
@@ -7,6 +7,8 @@ enum API {
   C3_URL = '/admin/product/getCategory3',
 
   ATTR_URL = '/admin/product/attrInfoList',
+  ADDORUPDATEATTR_URL = '/admin/product/saveAttrInfo',
+  DELETEATTR_URL = '/admin/product/deleteAttr',
 }
 
 export const reqC1 = () => request.get<any, CategoryResponseData>(API.C1_URL)
@@ -25,3 +27,9 @@ export const reqAttr = (
   request.get<any, AttrResponseData>(
     `${API.ATTR_URL}/${category1Id}/${category2Id}/${category3Id}`,
   )
+
+export const reqAddOrUpdateAttr = (data: Attr) =>
+  request.post<any, any>(API.ADDORUPDATEATTR_URL, data)
+
+export const reqDeleteAttr = (attrId: number | string) =>
+  request.post<any, any>(`${API.DELETEATTR_URL}/${attrId}`)

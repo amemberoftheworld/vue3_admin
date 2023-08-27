@@ -15,14 +15,15 @@ export interface AttrValue {
   id: number
   valueName: string
   attrId: number
+  flag?: boolean
 }
 
 export type AttrValueList = AttrValue[]
 
 export interface Attr {
-  id: number
+  id?: number
   attrName: string
-  categoryId: number
+  categoryId: number | string
   categoryLevel: number
   attrValueList: AttrValueList
 }

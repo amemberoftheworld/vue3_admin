@@ -12,6 +12,7 @@ import router from './router'
 import './premisstion'
 import 'element-plus/dist/index.css'
 import '@/styles/index.scss'
+import 'element-plus/theme-chalk/dark/css-vars.css'
 
 console.log(import.meta.env) //环境变量访问
 
