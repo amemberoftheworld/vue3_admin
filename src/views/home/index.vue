@@ -7,7 +7,6 @@
       </div>
     </div>
   </el-card>
-  
 </template>
 
 <script setup lang="ts">
@@ -25,13 +24,13 @@ export default {
 <style scoped lang="scss">
 .box {
   display: flex;
-   align-items: center;
+  align-items: center;
   .avatar {
     width: 100px;
     height: 100px;
     border-radius: 50%;
   }
-  >div{
+  > div {
     margin-left: 10px;
     font-size: 20px;
     font-weight: 700;

@@ -20,12 +20,11 @@ export default { name: 'Screen' }
 .container {
   width: 100vw;
   height: 100vh;
- background: url("@/assets/images/bg.png");
+  background: url('@/assets/images/bg.png');
   .screen {
     width: 1920px;
     height: 1080px;
     // background-color: salmon;
-
   }
 }
 </style>
