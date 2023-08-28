@@ -156,7 +156,7 @@ onMounted(() => {
         label: {
           show: true,
           position: 'inside',
-          color:'white'
+          color: 'white',
         },
         labelLine: {
           show: false,

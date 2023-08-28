@@ -1,5 +1,5 @@
 import * as echarts from 'echarts/core'
-import { BarChart, LineChart,PieChart } from 'echarts/charts'
+import { BarChart, LineChart, PieChart } from 'echarts/charts'
 import {
   TitleComponent,
   TooltipComponent,
@@ -8,9 +8,9 @@ import {
   DatasetComponent,
   // 内置数据转换器组件 (filter, sort)
   TransformComponent,
-  LegendComponent
+  LegendComponent,
 } from 'echarts/components'
-import { LabelLayout, UniversalTransition} from 'echarts/features'
+import { LabelLayout, UniversalTransition } from 'echarts/features'
 
 import { CanvasRenderer } from 'echarts/renderers'
 
@@ -53,8 +53,7 @@ echarts.use([
   UniversalTransition,
   CanvasRenderer,
   LegendComponent,
-  PieChart
-
+  PieChart,
 ])
 
 export default echarts
