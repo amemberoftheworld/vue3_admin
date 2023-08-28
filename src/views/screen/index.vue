@@ -1,17 +1,38 @@
 <template>
   <div class="container">
-    <div class="screen">
-      <div class="top"></div>
+    <div class="screen" ref="screen">
+      <Top />
       <div class="bottom">
-        <div class="left"></div>
-        <div class="center"></div>
-        <div class="right"></div>
+        <BLeft />
+        <BCenter />
+        <div class="right">右</div>
       </div>
     </div>
   </div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { onMounted, ref } from 'vue'
+import Top from './top/index.vue'
+import BLeft from './BLeft/index.vue'
+import BCenter from './BCenter/index.vue'
+
+let screen = ref()
+
+function getScale(w = 1920, h = 1080) {
+  const ww = window.innerWidth / w
+  const wh = window.innerHeight / h
+  return ww < wh ? ww : wh
+}
+
+window.onresize = () => {
+  screen.value.style.transform = `scale(${getScale()}) translate(-50%,-50%)`
+}
+
+onMounted(() => {
+  screen.value.style.transform = `scale(${getScale()}) translate(-50%,-50%)`
+})
+</script>
 <script lang="ts">
 export default { name: 'Screen' }
 </script>
@@ -20,11 +41,31 @@ export default { name: 'Screen' }
 .container {
   width: 100vw;
   height: 100vh;
-  background: url('@/assets/images/bg.png');
+  background: url('@/assets/images/bg.png') no-repeat;
+  background-size: cover;
   .screen {
+    position: fixed;
     width: 1920px;
     height: 1080px;
-    // background-color: salmon;
+    top: 50%;
+    left: 50%;
+    transform-origin: left top;
+
+    // .top {
+    //   width: 100%;
+    //   height: 40px;
+    // }
+    .bottom {
+      display: flex;
+
+      .right,
+      .left {
+        flex: 1;
+      }
+      .center {
+        flex: 2;
+      }
+    }
   }
 }
 </style>
