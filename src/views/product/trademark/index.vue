@@ -1,6 +1,12 @@
 <template>
   <el-card class="box-card">
-    <ElButton type="primary" size="default" icon="plus" @click="addTrademark" v-has="'aaaaa'">
+    <ElButton
+      type="primary"
+      size="default"
+      icon="plus"
+      @click="addTrademark"
+      v-has="'aaaaa'"
+    >
       添加品牌
     </ElButton>
 

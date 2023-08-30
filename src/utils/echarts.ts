@@ -4,7 +4,7 @@ import {
   LineChart,
   PieChart,
   LinesChart,
-  EffectScatterChart
+  EffectScatterChart,
 } from 'echarts/charts'
 import {
   TitleComponent,
@@ -16,7 +16,7 @@ import {
   TransformComponent,
   LegendComponent,
   GeoComponent,
-  ToolboxComponent 
+  ToolboxComponent,
 } from 'echarts/components'
 import { LabelLayout, UniversalTransition } from 'echarts/features'
 
@@ -65,7 +65,7 @@ echarts.use([
   GeoComponent,
   LinesChart,
   EffectScatterChart,
-  ToolboxComponent 
+  ToolboxComponent,
 ])
 
 export default echarts

@@ -13,31 +13,38 @@
 </template>
 
 <script setup lang="ts">
-import echarts from '@/utils/echarts';
-import { onMounted, ref } from 'vue';
+import echarts from '@/utils/echarts'
+import { onMounted, ref } from 'vue'
 
-
-let RCharts=ref()
-onMounted(()=>{
-  let rcharts=echarts.init(RCharts.value)
+let RCharts = ref()
+onMounted(() => {
+  let rcharts = echarts.init(RCharts.value)
   rcharts.setOption({
     xAxis: {
-    type: 'category',
-    data: ['景区一', '景区二', '景区三', '景区四', '景区五', '景区六', '景区七']
-  },
-  yAxis: {
-    type: 'value'
-  },
-  series: [
-    {
-      data: [120, 200, 150, 80, 70, 110, 130],
-      type: 'bar',
-      showBackground: true,
-      backgroundStyle: {
-        color: 'rgba(180, 180, 180, 0.2)'
-      }
-    }
-  ]
+      type: 'category',
+      data: [
+        '景区一',
+        '景区二',
+        '景区三',
+        '景区四',
+        '景区五',
+        '景区六',
+        '景区七',
+      ],
+    },
+    yAxis: {
+      type: 'value',
+    },
+    series: [
+      {
+        data: [120, 200, 150, 80, 70, 110, 130],
+        type: 'bar',
+        showBackground: true,
+        backgroundStyle: {
+          color: 'rgba(180, 180, 180, 0.2)',
+        },
+      },
+    ],
   })
 })
 </script>
@@ -73,7 +80,7 @@ onMounted(()=>{
       }
     }
 
-    .RCharts{
+    .RCharts {
       height: 300px;
     }
   }
