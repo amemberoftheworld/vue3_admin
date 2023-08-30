@@ -21,8 +21,6 @@
         background
         layout="prev, pager, next, jumper,->,sizes,total,"
         :total="total"
-        @size-change="handleSizeChange"
-        @current-change="handleCurrentChange"
         style="margin-top: 10px"
       />
     </el-card>

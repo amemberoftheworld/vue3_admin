@@ -5,7 +5,7 @@
       <div class="bottom">
         <BLeft />
         <BCenter />
-        <div class="right">右</div>
+        <BRight />
       </div>
     </div>
   </div>
@@ -16,7 +16,7 @@ import { onMounted, ref } from 'vue'
 import Top from './top/index.vue'
 import BLeft from './BLeft/index.vue'
 import BCenter from './BCenter/index.vue'
-
+import BRight from './BRight/index.vue'
 let screen = ref()
 
 function getScale(w = 1920, h = 1080) {
@@ -58,13 +58,13 @@ export default { name: 'Screen' }
     .bottom {
       display: flex;
 
-      .right,
-      .left {
-        flex: 1;
-      }
-      .center {
-        flex: 2;
-      }
+      // .right {
+      //   flex: 1;
+      // }
+      // .left
+      // .center {
+      //   flex: 2;
+      // }
     }
   }
 }

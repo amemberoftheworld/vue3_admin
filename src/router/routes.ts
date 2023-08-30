@@ -1,4 +1,4 @@
-const constantRoute = [
+export const constantRoute = [
   {
     path: '/login',
     component: () => import('@/views/login/index.vue'),
@@ -42,6 +42,19 @@ const constantRoute = [
     },
   },
 
+  {
+    path: '/404',
+    component: () => import('@/views/404/index.vue'),
+    name: '404',
+    meta: {
+      title: '404',
+      hidden: true,
+      icon: 'Filter',
+    },
+  },
+]
+
+export const asyncRoute = [
   {
     path: '/acl',
     component: () => import('@/layout/index.vue'),
@@ -139,17 +152,9 @@ const constantRoute = [
       },
     ],
   },
+]
 
-  {
-    path: '/404',
-    component: () => import('@/views/404/index.vue'),
-    name: '404',
-    meta: {
-      title: '404',
-      hidden: true,
-      icon: 'Filter',
-    },
-  },
+export const anyRoute = [
   {
     path: '/:pathMatch(.*)*',
     redirect: '/404',
@@ -161,5 +166,3 @@ const constantRoute = [
     },
   },
 ]
-
-export default constantRoute

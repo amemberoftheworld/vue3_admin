@@ -319,7 +319,7 @@ onMounted(() => {
     }
 
     .ACharts {
-      height: 260px;
+      height: 180px;
     }
   }
 }

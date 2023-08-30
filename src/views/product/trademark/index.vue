@@ -1,6 +1,6 @@
 <template>
   <el-card class="box-card">
-    <ElButton type="primary" size="default" icon="plus" @click="addTrademark">
+    <ElButton type="primary" size="default" icon="plus" @click="addTrademark" v-has="'aaaaa'">
       添加品牌
     </ElButton>
 
@@ -57,7 +57,6 @@
   <el-dialog
     v-model="dialogVisible"
     :title="trademarkParams.id ? '修改' : '添加'"
-    :before-close="handleClose"
   >
     <ElForm
       label-width="120px"
