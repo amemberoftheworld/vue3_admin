@@ -12,7 +12,7 @@ export const isHasButton = (app: any) => {
 
   app.directive('has', (el: any, binding: any) => {
     let buttons = useUserStore().buttons
-    if (!buttons.includes(binding.value)) {
+    if (!buttons.includes(binding.value) && el.parentNode) {
       el.parentNode.removeChild(el)
     }
   })
