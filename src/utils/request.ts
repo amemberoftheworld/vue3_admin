@@ -41,7 +41,7 @@ request.interceptors.response.use(
           msg = '服务器出现问题'
           break
         default:
-          msg = ''
+          msg = `${status} 未预设的错误码`
       }
     } else {
       msg = error.message
