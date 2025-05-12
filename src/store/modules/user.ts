@@ -52,15 +52,22 @@ let useUserStore = defineStore('User', {
         this.username = result.data.name
         this.avatar = result.data.avatar
         this.buttons = result.data.buttons
+        console.log(asyncRoute, result.data.routes)
+
         let userAsyncRoute = filterAsyncRoute(
           deepcopy(asyncRoute),
           result.data.routes,
         )
 
+        console.log('userAsyncRoute：', userAsyncRoute)
+        console.log(router)
+
         this.menuRoutes = [...constantRoute, ...userAsyncRoute, ...anyRoute]
         ;[...userAsyncRoute, ...anyRoute].forEach((route: any) =>
           router.addRoute(route),
         )
+
+        console.log(router)
 
         return 'ok'
       } else {

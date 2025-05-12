@@ -15,7 +15,7 @@ import '@/styles/index.scss'
 import 'element-plus/theme-chalk/dark/css-vars.css'
 import { isHasButton } from './directive/has'
 
-console.log(import.meta.env) //环境变量访问
+// console.log(import.meta.env) //环境变量访问
 
 const app = createApp(App)
 app.use(ElementPlus, {
